@@ -1,5 +1,6 @@
 package com.kh.practice.dimension;
 
+import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -214,9 +215,47 @@ public class DimensionPractice {
 		int group = 0;
 		String row = null;
 		String col = null;
-		for(String s : arr8) {
+		for(int i = 0; i<arr8.length;i++) {
+			switch(Arrays.asList(arr8).indexOf(name)) {
+			case 0:
+				group = 1; row = "첫"; col = "왼";
+				break;
+			case 1:
+				group = 1; row = "첫"; col = "오른";
+				break;
+			case 2:
+				group = 1; row = "두"; col = "왼";
+				break;
+			case 3:
+				group = 1; row = "두"; col = "오른";
+				break;
+			case 4:
+				group = 1; row = "세"; col = "왼";
+				break;
+			case 5:
+				group = 1; row = "세"; col = "오른";
+				break;
+			case 6:
+				group = 2; row = "첫"; col = "왼";
+				break;
+			case 7:
+				group = 2; row = "첫"; col = "오른";
+				break;
+			case 8:
+				group = 2; row = "두"; col = "왼";
+				break;
+			case 9:
+				group = 2; row = "두"; col = "오른";
+				break;
+			case 10:
+				group = 2; row = "세"; col = "왼";
+				break;
+			case 11:
+				group = 2; row = "세"; col = "오른";
+				break;
+			}
 		}
-		System.out.printf("검색하신 %s 학생은 %d분단 %s 번째 줄 %s에 있습니다.", name, group, row, col);
+		System.out.printf("검색하신 %s 학생은 %d분단 %s 번째 줄 %s쪽에 있습니다.", name, group, row, col);
 	}
 
 	public void practice10() {

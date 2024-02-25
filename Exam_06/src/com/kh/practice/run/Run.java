@@ -12,7 +12,7 @@ public class Run {
 //		new DimensionPractice().practice6();
 //		new DimensionPractice().practice7();
 //		new DimensionPractice().practice8();
-		new DimensionPractice().practice9();
+//		new DimensionPractice().practice9();
 //		new DimensionPractice().practice10();
 //		new DimensionPractice().practice11();
 	}
