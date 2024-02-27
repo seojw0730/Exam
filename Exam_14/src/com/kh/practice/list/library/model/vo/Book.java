@@ -77,7 +77,7 @@ public class Book implements Comparable<Book> {
 //	정렬 기준을 가지고 있는 메소드
 	@Override
 	public int compareTo(Book o) {
-		
-		return 0;
+		int result = this.title.compareTo(o.getTitle());
+		return result;
 	}
 }

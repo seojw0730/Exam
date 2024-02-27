@@ -44,10 +44,10 @@ public class BookController {
 	public Book deleteBook(String title, String author) {
 		Book removeBook = new Book();
 		removeBook = null;
-		for (Book b : this.list) {
-			if ((b.getTitle().equals(title)) && (b.getAuthor().equals(author))) {
-				removeBook = b;
-				this.list.remove(b);
+		for (int i = 0; i < list.size(); i++) {
+			if ((list.get(i).getTitle().equals(title)) && (list.get(i).getAuthor().equals(author))) {
+				removeBook = list.get(i);
+				list.remove(i);
 				break;
 			}
 		}
@@ -56,6 +56,7 @@ public class BookController {
 
 //	책 명 오름차순 정렬하는 메소드
 	public int ascBook() {
+		Collections.sort(list);
 		return 1;
 	}
 }

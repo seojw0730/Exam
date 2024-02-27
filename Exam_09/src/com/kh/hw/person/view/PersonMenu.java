@@ -55,9 +55,6 @@ public class PersonMenu {
 				System.out.print("메뉴 번호: ");
 				String menu = sc.nextLine();
 				switch (menu) {
-				case "1":
-					System.out.println("잘못 입력하셨습니다. 다시 입력해주세요.");
-					break;
 				case "2":
 					printStudent();
 					break;
@@ -73,31 +70,29 @@ public class PersonMenu {
 					break;
 				}
 			} else {
-				while (true) {
-					boolean exit = false;
-					System.out.println("1. 학생 추가");
-					System.out.println("2. 학생 보기");
-					System.out.println("9. 메인으로");
-					System.out.print("메뉴 번호: ");
-					String menu = sc.nextLine();
-					switch (menu) {
-					case "1":
-						insertStudent();
-						break;
-					case "2":
-						printStudent();
-						break;
-					case "9":
-						exit = true;
-						System.out.println("메인으로 돌아갑니다.");
-						break;
-					default:
-						System.out.println("잘못 입력하셨습니다. 다시 입력해주세요.");
-						break;
-					}
-					if (exit) {
-						break;
-					}
+				boolean exit = false;
+				System.out.println("1. 학생 추가");
+				System.out.println("2. 학생 보기");
+				System.out.println("9. 메인으로");
+				System.out.print("메뉴 번호: ");
+				String menu = sc.nextLine();
+				switch (menu) {
+				case "1":
+					insertStudent();
+					break;
+				case "2":
+					printStudent();
+					break;
+				case "9":
+					exit = true;
+					System.out.println("메인으로 돌아갑니다.");
+					break;
+				default:
+					System.out.println("잘못 입력하셨습니다. 다시 입력해주세요.");
+					break;
+				}
+				if (exit) {
+					break;
 				}
 			}
 		}
@@ -116,7 +111,7 @@ public class PersonMenu {
 				String menu = sc.nextLine();
 				switch (menu) {
 				case "2":
-					printStudent();
+					printEmployee();
 					break;
 				case "9":
 					exit = true;
@@ -130,31 +125,29 @@ public class PersonMenu {
 					break;
 				}
 			} else {
-				while (true) {
-					boolean exit = false;
-					System.out.println("1. 사원 추가");
-					System.out.println("2. 사원 보기");
-					System.out.println("9. 메인으로");
-					System.out.print("메뉴 번호: ");
-					String menu = sc.nextLine();
-					switch (menu) {
-					case "1":
-						insertStudent();
-						break;
-					case "2":
-						printStudent();
-						break;
-					case "9":
-						exit = true;
-						System.out.println("메인으로 돌아갑니다.");
-						break;
-					default:
-						System.out.println("잘못 입력하셨습니다. 다시 입력해주세요.");
-						break;
-					}
-					if (exit) {
-						break;
-					}
+				boolean exit = false;
+				System.out.println("1. 사원 추가");
+				System.out.println("2. 사원 보기");
+				System.out.println("9. 메인으로");
+				System.out.print("메뉴 번호: ");
+				String menu = sc.nextLine();
+				switch (menu) {
+				case "1":
+					insertEmployee();
+					break;
+				case "2":
+					printEmployee();
+					break;
+				case "9":
+					exit = true;
+					System.out.println("메인으로 돌아갑니다.");
+					break;
+				default:
+					System.out.println("잘못 입력하셨습니다. 다시 입력해주세요.");
+					break;
+				}
+				if (exit) {
+					break;
 				}
 			}
 		}
@@ -206,7 +199,11 @@ public class PersonMenu {
 //	객체배열에 저장된 학생 데이터를 출력하는 메소드
 	public void printStudent() {
 		for (int i = 0; i < pc.printStudent().length; i++) {
-			System.out.println(pc.printStudent()[i]);
+			if (pc.printStudent()[i] != null) {
+				System.out.println(pc.printStudent()[i]);
+			} else {
+				break;
+			}
 		}
 	}
 
@@ -232,7 +229,7 @@ public class PersonMenu {
 			String dept = sc.nextLine();
 			pc.insertEmployee(name, age, height, weight, salary, dept);
 
-			if (pc.printStudent()[9] != null) {
+			if (pc.printEmployee()[9] != null) {
 				System.out.println("사원을 담을 수 있는 공간이 꽉 찼기 때문에 사원 추가를 종료하고 사원 메뉴로 돌아갑니다.");
 				break;
 			}
@@ -256,7 +253,11 @@ public class PersonMenu {
 //	객체배열에 저장된 사원 데이터를 출력하는 메소드
 	public void printEmployee() {
 		for (int i = 0; i < pc.printEmployee().length; i++) {
-			System.out.println(pc.printEmployee()[i]);
+			if (pc.printEmployee()[i] != null) {
+				System.out.println(pc.printEmployee()[i]);
+			} else {
+				break;
+			}
 		}
 	}
 }

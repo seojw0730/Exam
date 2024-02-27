@@ -60,8 +60,10 @@ public class PersonController {
 	public void insertEmployee(String name, int age, double height, double weight, int salary, String dept) {
 		Employee insertEmployee = new Employee(name, age, height, weight, salary, dept);
 		for (int i = 0; i < e.length; i++) {
-			if (e[i] == null)
+			if (e[i] == null) {
 				e[i] = insertEmployee;
+				break;
+			}
 		}
 	}
 
