@@ -1,6 +1,8 @@
 package com.kh.practice.chap02_abstractNInterface.controller;
 
 import com.kh.practice.chap02_abstractNInterface.model.vo.GalaxyNote9;
+import com.kh.practice.chap02_abstractNInterface.model.vo.Phone;
+import com.kh.practice.chap02_abstractNInterface.model.vo.V40;
 
 public class PhoneController {
 	private String[] result = new String[2];
@@ -10,7 +12,9 @@ public class PhoneController {
 //	for문을 이용하여 Phone 객체배열에 각 인덱스의 printInformation()의
 //	반환 값을 String배열에 담아 반환
 	public String[] method() {
-		String[] phone = new String[2];
-		return phone;
+		Phone[] phone = new Phone[2];
+		phone[0] = (GalaxyNote9) new GalaxyNote9();
+		phone[1] = (V40) new V40();
+		return result;
 	}
 }
