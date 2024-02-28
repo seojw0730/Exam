@@ -13,8 +13,15 @@ public class PhoneController {
 //	반환 값을 String배열에 담아 반환
 	public String[] method() {
 		Phone[] phone = new Phone[2];
-		phone[0] = (GalaxyNote9) new GalaxyNote9();
-		phone[1] = (V40) new V40();
+		phone[0] = new GalaxyNote9();
+		phone[1] = new V40();
+		for (Phone p : phone) {
+			if (p instanceof GalaxyNote9) {
+				result[0] = ((GalaxyNote9) p).printInformation();
+			}else if(p instanceof V40) {
+				result[1] = ((V40) p).printInformation();
+			}
+		}
 		return result;
 	}
 }
