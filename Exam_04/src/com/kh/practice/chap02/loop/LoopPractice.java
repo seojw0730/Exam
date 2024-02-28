@@ -246,4 +246,69 @@ public class LoopPractice {
 			System.out.println();
 		}
 	}
+
+	public void practice15() {
+		System.out.print("숫자: ");
+		String numStr = sc.nextLine();
+		int num = Integer.parseInt(numStr);
+		int count = 0;
+		for (int i = 1; i < num; i++) {
+			if (num % i == 0) {
+				count++;
+			}
+		}
+		if (num < 2) {
+			System.out.println("잘못 입력하셨습니다.");
+		} else if (count == 1) {
+			System.out.println("소수입니다.");
+		} else {
+			System.out.println("소수가 아닙니다.");
+		}
+	}
+
+	public void practice16() {
+		while (true) {
+			System.out.print("숫자: ");
+			String numStr = sc.nextLine();
+			int num = Integer.parseInt(numStr);
+			int count = 0;
+			for (int i = 1; i < num; i++) {
+				if (num % i == 0) {
+					count++;
+				}
+			}
+			if (num < 2) {
+				System.out.println("잘못 입력하셨습니다.");
+			} else if (count == 1) {
+				System.out.println("소수입니다.");
+				break;
+			} else {
+				System.out.println("소수가 아닙니다.");
+				break;
+			}
+		}
+	}
+
+	public void practice17() {
+		System.out.print("숫자: ");
+		String numStr = sc.nextLine();
+		int num = Integer.parseInt(numStr);
+		int count = 0;
+		int sosu = 2;
+		int numOfSosu = 0;
+		while (sosu < num + 1) {
+			for (int i = 1; i < sosu; i++) {
+				if (sosu % i == 0) {
+					count++;
+				}
+			}
+			if (count == 1) {
+				System.out.print(sosu + " ");
+				numOfSosu++;
+			}
+			count = 0;
+			sosu++;
+		}
+		System.out.printf("\n2부터 %d까지의 소수의 개수는 %d개입니다.", num, numOfSosu);
+	}
 }
