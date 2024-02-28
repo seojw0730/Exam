@@ -261,4 +261,17 @@ public class ControlPractice {
 			break;
 		}
 	}
+
+	public void practice11() {
+		System.out.print("비밀번호 입력(1000~9999): ");
+		String passwordStr = sc.nextLine();
+		int password = Integer.parseInt(passwordStr);
+		int p1 = password / 1000;
+		int p2 = password / 100 - 10 * p1;
+		int p3 = password / 10 - 100 * p1 - 10 * p2;
+		int p4 = password - 1000 * p1 - 100 * p2 - 10 * p3;
+		if((password<1000)||(password>9999)) {
+			System.out.println("자리 수 안 맞음");
+		}
+	}
 }
