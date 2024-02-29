@@ -294,21 +294,105 @@ public class LoopPractice {
 		String numStr = sc.nextLine();
 		int num = Integer.parseInt(numStr);
 		int count = 0;
-		int sosu = 2;
-		int numOfSosu = 0;
-		while (sosu < num + 1) {
-			for (int i = 1; i < sosu; i++) {
-				if (sosu % i == 0) {
+		int prime = 2;
+		int numOfPrime = 0;
+		while (prime < num + 1) {
+			for (int i = 1; i < prime; i++) {
+				if (prime % i == 0) {
 					count++;
 				}
 			}
 			if (count == 1) {
-				System.out.print(sosu + " ");
-				numOfSosu++;
+				System.out.print(prime + " ");
+				numOfPrime++;
 			}
 			count = 0;
-			sosu++;
+			prime++;
 		}
-		System.out.printf("\n2부터 %d까지의 소수의 개수는 %d개입니다.", num, numOfSosu);
+		System.out.printf("\n2부터 %d까지의 소수의 개수는 %d개입니다.", num, numOfPrime);
+	}
+
+	public void practice18() {
+		System.out.print("자연수 하나를 입력하세요: ");
+		String numStr = sc.nextLine();
+		int num = Integer.parseInt(numStr);
+		int count = 0;
+		for (int i = 1; i < num + 1; i++) {
+			if ((i % 2 == 0) || (i % 3 == 0)) {
+				System.out.print(i + " ");
+			}
+			if ((i % 2 == 0) && (i % 3 == 0)) {
+				count++;
+			}
+		}
+		System.out.println("\ncount: " + count);
+	}
+
+	public void practice19() {
+		System.out.print("정수 입력: ");
+		String integerStr = sc.nextLine();
+		int integer = Integer.parseInt(integerStr);
+		for (int i = 0; i < integer; i++) {
+			for (int k = integer - 1; k > i; k--) {
+				System.out.print(" ");
+			}
+			for (int j = integer - i; j < integer + 1; j++) {
+				System.out.print("*");
+			}
+			System.out.println();
+		}
+	}
+
+	public void practice20() {
+		System.out.print("정수 입력: ");
+		String integerStr = sc.nextLine();
+		int integer = Integer.parseInt(integerStr);
+		for (int i = 0; i < integer; i++) {
+			for (int j = integer - i; j < integer + 1; j++) {
+				System.out.print("*");
+			}
+			System.out.println();
+		}
+		for (int m = 0; m < integer - 1; m++) {
+			for (int n = m; n < integer - 1; n++) {
+				System.out.print("*");
+			}
+			System.out.println();
+		}
+	}
+
+	public void practice21() {
+		System.out.print("정수 입력: ");
+		String integerStr = sc.nextLine();
+		int integer = Integer.parseInt(integerStr);
+		for (int i = 0; i < integer; i++) {
+			for (int j = 0; j < integer - i - 1; j++) {
+				System.out.print(" ");
+			}
+			for (int k = 0; k < 2 * i + 1; k++) {
+				System.out.print("*");
+			}
+			System.out.println();
+		}
+	}
+
+	public void practice22() {
+		System.out.print("정수 입력: ");
+		String integerStr = sc.nextLine();
+		int integer = Integer.parseInt(integerStr);
+		for (int i = 0; i < integer; i++) {
+			if ((i == 0) || (i == integer - 1)) {
+				for (int j = 0; j < integer; j++) {
+					System.out.print("*");
+				}
+			} else {
+				System.out.print("*");
+				for (int k = 0; k < integer - 2; k++) {
+					System.out.print(" ");
+				}
+				System.out.print("*");
+			}
+			System.out.println();
+		}
 	}
 }
