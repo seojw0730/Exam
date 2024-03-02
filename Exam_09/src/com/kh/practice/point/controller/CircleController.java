@@ -5,15 +5,15 @@ import com.kh.practice.point.model.vo.Point;
 
 public class CircleController {
 	private Circle c = new Circle();
-	final double PI = 3.14;
+	final float PI = 3.14f;
 
 	public String calcArea(int x, int y, int radius) {
 		double Area = PI * radius * radius;
-		return x + " " + y + " " + radius + " / " + Area;
+		return x + ", " + y + ", " + radius + " / " + Area;
 	}
 
 	public String calcCircum(int x, int y, int radius) {
 		double Circum = 2 * PI * radius;
-		return x + " " + y + " " + radius + " / " + Circum;
+		return x + ", " + y + ", " + radius + " / " + Circum;
 	}
 }
