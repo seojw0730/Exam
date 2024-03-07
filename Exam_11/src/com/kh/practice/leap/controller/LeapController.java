@@ -14,6 +14,10 @@ public class LeapController {
 	}
 
 	public long LeapDate(Calendar c) {
+		Calendar norm = Calendar.getInstance();
+		norm.set(1, 1, 1);
+		System.out.println(c.compareTo(norm));
+		
 		return 0;
 	}
 
