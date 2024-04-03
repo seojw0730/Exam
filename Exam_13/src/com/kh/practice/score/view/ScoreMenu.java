@@ -42,18 +42,18 @@ public class ScoreMenu {
 	public void saveScore() {
 		int num = 0; // 학생 숫자
 		while (true) {
-			System.out.println("");
+			System.out.println(num + "번 째 학생 정보 기록");
 			System.out.print("이름: ");
 			String name = sc.nextLine();
 			System.out.print("국어 점수: ");
-			int kor = sc.nextInt();
-			sc.nextLine();
+			String korStr = sc.nextLine();
+			int kor = Integer.parseInt(korStr);
 			System.out.print("영어 점수: ");
-			int eng = sc.nextInt();
-			sc.nextLine();
+			String engStr = sc.nextLine();
+			int eng = Integer.parseInt(engStr);
 			System.out.print("수학 점수: ");
-			int math = sc.nextInt();
-			sc.nextLine();
+			String mathStr = sc.nextLine();
+			int math = Integer.parseInt(mathStr);
 			int sum = kor + eng + math;
 			double avg = (double) sum / 3;
 			num++;

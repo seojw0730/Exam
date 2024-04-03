@@ -10,11 +10,12 @@ public class ScoreController {
 
 //	매개변수를 DAO에 전달
 	public void saveScore(String name, int kor, int eng, int math, int sum, double avg) {
-
+		sd.saveScore(name, kor, eng, math, sum, avg);
 	}
 
 //	DAO에 반환 값을 그대로 반환
-	public DataInputStream readScore() throws FileNotFoundException {
+	public DataInputStream readScore() {
+		
 		return null;
 	}
 }
