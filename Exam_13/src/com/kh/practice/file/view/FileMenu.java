@@ -1,7 +1,6 @@
 package com.kh.practice.file.view;
 
-import java.io.File;
-import java.io.FileWriter;
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.Scanner;
 
@@ -52,20 +51,28 @@ public class FileMenu {
 		String content = null;
 		StringBuilder sb = new StringBuilder();
 		while (true) {
+			System.out.println("파일에 저장할 내용을 입력하세요.");
+			System.out.println("ex끝it 이라고 입력하면 종료됩니다.");
 			System.out.print("내용: ");
 			content = sc.nextLine();
-			System.out.println("ex끝it 이라고 입력하면 종료됩니다.");
 			if (content.equals("ex끝it"))
 				break;
-			sb.append(content);
+			sb.append(content + "\n");
 		}
-		System.out.print("저장할 파일 명을 입력해주세요(ex. myFile.txt): ");
-		String fileName = sc.nextLine();
-		File f1 = new File(fileName);
-		try {
-			f1.createNewFile();
-		} catch (IOException e) {
-			e.printStackTrace();
+		while(true) {
+			System.out.print("저장할 파일 명을 입력해주세요(ex. myFile.txt): ");
+			String fileName = sc.nextLine();
+			if(fc.checkName(fileName)) {
+				System.out.print("이미 존재하는 파일입니다. 덮어쓰시겠습니까?(y/n)");
+				String alrFile = sc.nextLine();
+				if(alrFile.equals("y")) {
+					fc.fileSave(fileName, sb);
+					break;
+				}
+			}else {
+				fc.fileSave(fileName, sb);
+				break;
+			}
 		}
 
 		// 파일에 저장할 내용을 입력하세요.
@@ -83,6 +90,13 @@ public class FileMenu {
 
 //	파일 명을 받아 저장된 데이터 출력
 	public void fileOpen() {
+		System.out.print("열 파일 명: ");
+		String openFile = sc.nextLine();
+		if(fc.checkName(openFile)) {
+			System.out.println(fc.fileOpen(openFile));
+		}else {
+			System.out.println("없는 파일입니다.");
+		}
 		// 열 파일 명 :
 		// 받은 파일 명을 fc에 checkName()의 매개변수로 넘겨 반환 값에 따라 나뉨
 		// 반환 값이 true일 경우 fc의 fileOpen() 메소드의 매개변수로 넘겨 반환 값 출력
@@ -91,6 +105,24 @@ public class FileMenu {
 
 //	파일 명과 저장할 값을 받음
 	public void fileEdit() {
+		System.out.print("수정할 파일 명: ");
+		String editFile = sc.nextLine();
+		String content;
+		StringBuilder sb = new StringBuilder();
+		if(fc.checkName(editFile)) {
+			while (true) {
+				System.out.println("파일에 저장할 내용을 입력하세요.");
+				System.out.println("ex끝it 이라고 입력하면 종료됩니다.");
+				System.out.print("내용: ");
+				content = sc.nextLine();
+				if (content.equals("ex끝it"))
+					break;
+				sb.append(content + "\n");
+			}
+			fc.fileEdit(editFile, sb);
+		}else {
+			System.out.println("없는 파일입니다.");
+		}
 		// 수정할 파일 명 :
 		// 받은 파일 명을 fc에 checkName()의 매개변수로 넘겨 반환 값에 따라 나뉨
 		// 반환 값이 false일 경우 “없는 파일입니다.” 출력 후 mainMenu()로 돌아감
